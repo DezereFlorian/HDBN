@@ -19,3 +19,4 @@ void choix_hdbn(void);
 void recherche_zero(void);
 void transforme(int i);
 void afficher(void);
+void Tab_2Tab(void);

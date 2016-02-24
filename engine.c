@@ -33,8 +33,9 @@ void recherche_zero(void) {
 	int nb_zero = 0, i = 0;
 	for (i = 0; i < N; i++){
 		if (nb_zero == hdbn + 1){
-			transforme(i);
+			transforme(i-1);
 			nb_zero = 0;
+			i--;
 		} else if (tab_sequence[i] == 0){
 			nb_zero++;
 			tab_sortie[i] = tab_sequence[i];
@@ -87,11 +88,38 @@ void transforme(int place){
 
 void afficher(void){
   int i;
-  printf("\nLa trame HDB%i est donc :\n",hdbn);
+  printf("\nLa trame HDB%i est donc : ",hdbn);
   for(i=0;i<N;i++){
     if (tab_sortie[i] != -2) {
-      printf("%i ", tab_sortie[i]);
+      printf("%2i ", tab_sortie[i]);
     }
   }
-  printf("\n");
+	printf("\nNegatif: ");
+	for(i=0;i<N;i++){
+    if (tab_Nega[i] != -2) {
+      printf("%2i ", tab_Nega[i]);
+    }
+  }
+	printf("\nPositif: ");
+	for(i=0;i<N;i++){
+    if (tab_Posi[i] != -2) {
+      printf("%2i ", tab_Posi[i]);
+    }
+  }
+}
+
+void Tab_2Tab(void){
+	int i = 0;
+	for (i = 0; i < N; i++){
+		if (tab_sortie[i] == 1){
+			tab_Posi[i] = 1;
+			tab_Nega[i] = 0;
+		} else if (tab_sortie[i] == 0){
+			tab_Posi[i] = 0;
+			tab_Nega[i] = 0;
+		} else if (tab_sortie[i] == -1){
+			tab_Posi[i] = 0;
+			tab_Nega[i] = 1;
+		}
+	}
 }
