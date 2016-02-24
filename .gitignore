@@ -4,6 +4,8 @@
 *.ko
 *.obj
 *.elf
+*.exe*
+hdbn
 
 # Precompiled Headers
 *.gch
