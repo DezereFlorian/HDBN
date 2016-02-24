@@ -4,12 +4,12 @@ int hdbn = 0;
 t_signe last_viol = positif;
 t_signe last_un = negatif;
 
-int main (void) {
-	reset();
-	choix_hdbn();
-	recup_message();
-	recherche_zero();
-	afficher();
+int tab_sequence[N] = { 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0};
 
-	return EXIT_SUCCESS;
+int main (void) {
+  choix_hdbn();
+//  recup_message();
+  recherche_zero();
+  afficher();
+  return EXIT_SUCCESS;
 }
