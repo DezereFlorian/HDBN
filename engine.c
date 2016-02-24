@@ -4,27 +4,21 @@ void reset (void) {
 	int i = 0;
 	printf("\n");
 	for (i = 0; i < N; i++){
-		tab_sequence[i] = -1;
-		tab_sortie[i] = -1;
+		tab_sequence[i] = -2;
+		tab_sortie[i] = -2;
+		tab_Posi[N] = -2;
+		tab_Nega[N] = -2;
 	}
-	printf("\n");
 }
 
 void recup_message(void){
 	int tmp = 0;
 	int  i = 0;
 	printf("Envoyez la sequence de la trame et -1 pour stopper la saisie : \n");
-	/*scanf("%c", tmp);
-	int longueur = strlen(&tmp);
-	for (i = 0; i != longueur; i++){
-		tab_sequence[i] = tmp[i];
-		i++;
-	}*/
 	for (i = 0; tmp != -1; i++){
 		scanf("%i", &tmp);
 		tab_sequence[i] = tmp;
 	}
-	//printf("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 }
 
 void choix_hdbn(void){
@@ -44,21 +38,28 @@ void recherche_zero(void) {
 		}
 		else if (tab_sequence[i] == 1){
 			nb_zero = 0;
-			tab_sortie[i] = tab_sequence[i];
-		} //else:
+			if (last_un == positif){
+				last_un = negatif;
+				tab_sortie[i] = -tab_sequence[i];
+			}
+			else {
+				last_un = positif;
+				tab_sortie[i] = tab_sequence[i];
+			}
+		}
 	}
 }
 
 void transforme(int place){
 	if (last_viol == positif){
 		if (last_un == positif){
-			//on change de place et on change la chaine avec [-1001]
+			//on change de place et on change la chaine avec [-1....1]
 			tab_sortie[place - hdbn] = -1;
 			tab_sortie[place] = -1;
 			last_viol = negatif;
 			last_un = negatif;
 		} else {
-			//[000-1]
+			//[0......-1]
 			tab_sortie[place - hdbn] = 0;
 			tab_sortie[place] = -1;
 			last_viol = negatif;
@@ -66,13 +67,13 @@ void transforme(int place){
 		}
 	} else {
 		if (last_un == positif){
-			//[0001]]
+			//[0....1]
 			tab_sortie[place-hdbn] = 0;
 			tab_sortie[place] = 1;
 			last_viol = positif;
 			last_un = positif;
 		} else {
-			//[1001]
+			//[1.....1]
 			tab_sortie[place - hdbn] = 1;
 			tab_sortie[place] = 1;
 			last_viol = positif;
