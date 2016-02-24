@@ -88,24 +88,24 @@ void transforme(int place){
 
 void afficher(void){
   int i;
-  printf("\nLa trame HDB%i est donc : ",hdbn);
   for(i=0;i<N;i++){
     if (tab_sortie[i] != -2) {
       printf("%2i ", tab_sortie[i]);
     }
   }
-	printf("\nNegatif: ");
+  printf(": La trame HDB%i\n",hdbn);
 	for(i=0;i<N;i++){
     if (tab_Nega[i] != -2) {
       printf("%2i ", tab_Nega[i]);
     }
   }
-	printf("\nPositif: ");
+  printf(": Negatif \n");
 	for(i=0;i<N;i++){
     if (tab_Posi[i] != -2) {
       printf("%2i ", tab_Posi[i]);
     }
   }
+  printf(": Positif \n");
 }
 
 void Tab_2Tab(void){
