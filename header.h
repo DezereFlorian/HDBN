@@ -1,12 +1,15 @@
 #include<stdlib.h>
 #include<string.h>
 #include<stdio.h>
+#define N 50
 
-typedef enum {positif, negatif} t_signe; 
-int tab_sequence[50];
-int tab_posi[50];
-int tab_nega[50];
-extern t_signe last_viol; 
+typedef enum {positif, negatif} t_signe;
+int tab_sequence[N];
+int tab_sortie[N];
+int tab_Posi[N];
+int tab_Nega[N]
+
+extern t_signe last_viol;
 extern t_signe last_un;
 extern int hdbn;
 
