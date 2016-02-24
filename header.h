@@ -1,14 +1,14 @@
-#include<stdlib.h>
-#include<string.h>
-#include<stdio.h>
-#define N 50
+# include<stdlib.h>
+# include<string.h>
+# include<stdio.h>
+# define N 500
 
 typedef enum {positif, negatif} t_signe;
-int tab_sequence[N];
 int tab_sortie[N];
 int tab_Posi[N];
-int tab_Nega[N]
+int tab_Nega[N];
 
+extern int tab_sequence[N];
 extern t_signe last_viol;
 extern t_signe last_un;
 extern int hdbn;
