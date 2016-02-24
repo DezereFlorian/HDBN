@@ -10,7 +10,7 @@ int main (void) {
   choix_hdbn();
 //  recup_message();
   recherche_zero();
-	Tab_2Tab();
+  Tab_2Tab();
   afficher();
   return EXIT_SUCCESS;
 }
