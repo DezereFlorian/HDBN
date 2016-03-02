@@ -35,4 +35,5 @@ void transforme(int i);
 void afficher(int max);
 void Tab_2Tab(int max);
 void decode(int max);
+void afficherDec(int sizeTab);
 #endif /* end of include guard: HEADER_H_G9K5UTVS */

@@ -22,14 +22,7 @@ int main (void) {
 
       decode(sizeTab);
 
-      int i;
-      printf("\n");
-      for(i=0;i<sizeTab;i++){
-        if (tab_Posi[i] != -2) {
-          printf("%2i ", tab_Posi[i]);
-        }
-      }
-      printf( green ": La trame positive \n\n" raz );
+      afficherDec(sizeTab);
 
   return EXIT_SUCCESS;
 }

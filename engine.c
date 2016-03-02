@@ -149,27 +149,41 @@ void Tab_2Tab(int max){
 void decode(int max){
   int i,j;
   for (i = 0; i < max; i++) {
+
     tab_sequence[i] = 0;
 
-    if (tab_Posi[i] == 1 && last_viol == negatif) {
-      last_viol = positif;
-      tab_sequence[i] = 1;
-
-    }else if ( tab_Nega[i] == 1 && last_viol == positif ){
-      last_viol = negatif;
-      tab_sequence[i] = 1;
-    }
-
     if (tab_Posi[i] == 1 && last_viol == positif ) {
-      for (j = i ; j >  i-hdbn ; j--) {
-        tab_sequence[i] = 0;
+      for (j = i- hdbn  ; j <=  i; j++) {
+        tab_sequence[j] = 0;
       }
+      // last_viol = negatif;
+    }else if (tab_Nega[i] == 1 && last_viol == negatif) {
+      for (j = i- hdbn  ; j <=  i; j++) {
+        tab_sequence[j] = 0;
+      }
+      // last_viol = positif;
     }
-    if (tab_Nega[i] == 1 && last_viol == negatif) {
-      for (j = i ; j >  i-hdbn ; j--) {
-        tab_sequence[i] = 0;
-      }
+    else if ( tab_Nega[i] == 1 && last_viol == positif ){
+      tab_sequence[i] = 1;
+      last_viol = negatif;
+    }
+
+    else if  (tab_Posi[i] == 1 && last_viol == negatif) {
+      tab_sequence[i] = 1;
+      last_viol = positif;
+
     }
 
   }
+}
+
+void afficherDec(int sizeTab){
+  int i;
+  printf("\n");
+  for(i=0;i<sizeTab;i++){
+    if (tab_sequence[i] != -2) {
+      printf("%2i ", tab_sequence[i]);
+    }
+  }
+  printf( yellow ": La trame décodé \n\n" raz );
 }
