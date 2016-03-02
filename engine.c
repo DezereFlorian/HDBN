@@ -12,7 +12,7 @@ void reset (void) {
   printf("\n");
 }
 
-void recup_message(void){
+int recup_message(void){
   reset();
   int tmp = 0;
   int  i = 0;
@@ -22,6 +22,7 @@ void recup_message(void){
     scanf("%i", &tmp);
     tab_sequence[i] = tmp;
   }
+  return i-1;
 }
 
 void choix_hdbn(void){
@@ -29,7 +30,7 @@ void choix_hdbn(void){
   scanf("%i",&hdbn);
 }
 
-void recherche_zero(void) {
+void recherche_zero(int max) {
   int nb_zero = 0, i = 0;
   for (i = 0; i < N; i++){
     if (nb_zero == hdbn + 1){
@@ -105,7 +106,7 @@ void transforme(int place){
   }
 }
 
-void afficher(void){
+void afficher(int max){
   int i;
   for(i=0;i<N;i++){
     if (tab_sortie[i] != -2) {
@@ -139,7 +140,7 @@ void afficher(void){
   printf(": La trame HDB%i\n",hdbn);
 }
 
-void Tab_2Tab(void){
+void Tab_2Tab(int max){
   int i = 0;
   for (i = 0; i < N; i++){
     tab_sortie[i]=tab_Posi[i] -1*(tab_Nega[i]);
