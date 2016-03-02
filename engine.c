@@ -30,79 +30,79 @@ void choix_hdbn(void){
 }
 
 void recherche_zero(void) {
-	int nb_zero = 0, i = 0;
-	for (i = 0; i < N; i++){
-		if (nb_zero == hdbn + 1){
-			transforme(i-1);
-			nb_zero = 0;
-			i--;
-		} else if (tab_sequence[i] == 0){
-			nb_zero++;
+  int nb_zero = 0, i = 0;
+  for (i = 0; i < N; i++){
+    if (nb_zero == hdbn + 1){
+      transforme(i-1);
+      nb_zero = 0;
+      i--;
+    } else if (tab_sequence[i] == 0){
+      nb_zero++;
       tab_Nega[i] = tab_sequence[i];
       tab_Posi[i] = tab_sequence[i];
-		}
-		else if (tab_sequence[i] == 1){
-			nb_zero = 0;
-			if (last_un == positif){
-				last_un = negatif;
+    }
+    else if (tab_sequence[i] == 1){
+      nb_zero = 0;
+      if (last_un == positif){
+        last_un = negatif;
         tab_Nega[i] = tab_sequence[i];
         tab_Posi[i] = 0;
-			}
-			else {
-				last_un = positif;
+      }
+      else {
+        last_un = positif;
         tab_Nega[i] = 0;
         tab_Posi[i] = tab_sequence[i];
-			}
-		}
-	}
+      }
+    }
+  }
 }
 
 void transforme(int place){
-	if (last_viol == positif){
-		if (last_un == positif){
-			//on change de place et on change la chaine avec [-1....1]
+  if (last_viol == positif){
+    if (last_un == positif){
+      //on change de place et on change la chaine avec [-1....1]
 
       tab_Nega[place - hdbn] = 1;
       tab_Posi[place - hdbn] = 0;
       tab_Nega[place] = 1;
       tab_Posi[place] = 0;
 
-			last_viol = negatif;
-			last_un = negatif;
-		} else {
-			//[0......-1]
+      last_viol = negatif;
+      last_un = negatif;
+    } else {
+      //[0......-1]
 
       tab_Nega[place - hdbn] = 0;
       tab_Posi[place - hdbn] = 0;
       tab_Nega[place] = 1;
       tab_Posi[place] = 0;
 
-			last_viol = negatif;
-			last_un = negatif;
-		}
-	} else {
-		if (last_un == positif){
-			//[0....1]
+      last_viol = negatif;
+      last_un = negatif;
+    }
+  } else {
+    if (last_un == positif){
+      //[0....1]
 
       tab_Nega[place - hdbn] = 0;
       tab_Posi[place - hdbn] = 0;
       tab_Nega[place] = 0;
       tab_Posi[place] = 1;
 
-			last_viol = positif;
-			last_un = positif;
-		} else {
-			//[1.....1]
+      last_viol = positif;
+      last_un = positif;
+    } else {
+      //[1.....1]
 
       tab_Nega[place - hdbn] = 0;
       tab_Posi[place - hdbn] = 1;
       tab_Nega[place] = 0;
       tab_Posi[place] = 1;
 
-			last_viol = positif;
-			last_un = positif;
-		}
-	}
+      last_viol = positif;
+      last_un = positif;
+    }
+  }
 }
 
 void afficher(void){
@@ -113,18 +113,18 @@ void afficher(void){
     }
   }
   printf(": La trame D'entée\n\n" );
-	for(i=0;i<N;i++){
+  for(i=0;i<N;i++){
     if (tab_Nega[i] != -2) {
       printf("%2i ", tab_Nega[i]);
     }
   }
-  printf(red ": La trame Negatif \n" raz);
-	for(i=0;i<N;i++){
+  printf(red ": La trame negative \n" raz);
+  for(i=0;i<N;i++){
     if (tab_Posi[i] != -2) {
       printf("%2i ", tab_Posi[i]);
     }
   }
-  printf( green ": La trame Positif \n\n" raz );
+  printf( green ": La trame positive \n\n" raz );
   for(i=0;i<N;i++){
     if (tab_sortie[i] != -2) {
       if (tab_sortie[i] == -1) {
@@ -140,8 +140,8 @@ void afficher(void){
 }
 
 void Tab_2Tab(void){
-	int i = 0;
-	for (i = 0; i < N; i++){
+  int i = 0;
+  for (i = 0; i < N; i++){
     tab_sortie[i]=tab_Posi[i] -1*(tab_Nega[i]);
-	}
+  }
 }
