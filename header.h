@@ -34,4 +34,5 @@ void recherche_zero(int max);
 void transforme(int i);
 void afficher(int max);
 void Tab_2Tab(int max);
+void decode(int max);
 #endif /* end of include guard: HEADER_H_G9K5UTVS */

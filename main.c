@@ -11,26 +11,25 @@ int tab_sequence[N] = { 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1,
 
 int main (void) {
 
-  int choix = 0;
   int sizeTab = 23;
-  printf("Si vous voulez coder une chaine (celle de l'exemple) tapé 1, sinon si vous voulez décoder une chaine taper 2: \n");
-  scanf("%i", &choix);
-  switch (choix) {
-    case 1:
+
 
       choix_hdbn();
       // sizeTab = recup_message();
       recherche_zero(sizeTab);
       Tab_2Tab(sizeTab);
       afficher(sizeTab);
-      
-      break;
-    case 2:
-      printf("En train de bosser...");
-      break;
-    default:
-      printf("Mauvaise saisie !");
-      break;
-  }
+
+      decode(sizeTab);
+
+      int i;
+      printf("\n");
+      for(i=0;i<sizeTab;i++){
+        if (tab_Posi[i] != -2) {
+          printf("%2i ", tab_Posi[i]);
+        }
+      }
+      printf( green ": La trame positive \n\n" raz );
+
   return EXIT_SUCCESS;
 }
