@@ -32,7 +32,7 @@ void choix_hdbn(void){
 
 void recherche_zero(int max) {
   int nb_zero = 0, i = 0;
-  for (i = 0; i < N; i++){
+  for (i = 0; i < max; i++){
     if (nb_zero == hdbn + 1){
       transforme(i-1);
       nb_zero = 0;
@@ -108,25 +108,25 @@ void transforme(int place){
 
 void afficher(int max){
   int i;
-  for(i=0;i<N;i++){
+  for(i=0;i<max;i++){
     if (tab_sortie[i] != -2) {
       printf("%2i ", tab_sequence[i]);
     }
   }
   printf(": La trame D'entée\n\n" );
-  for(i=0;i<N;i++){
+  for(i=0;i<max;i++){
     if (tab_Nega[i] != -2) {
       printf("%2i ", tab_Nega[i]);
     }
   }
   printf(red ": La trame negative \n" raz);
-  for(i=0;i<N;i++){
+  for(i=0;i<max;i++){
     if (tab_Posi[i] != -2) {
       printf("%2i ", tab_Posi[i]);
     }
   }
   printf( green ": La trame positive \n\n" raz );
-  for(i=0;i<N;i++){
+  for(i=0;i<max;i++){
     if (tab_sortie[i] != -2) {
       if (tab_sortie[i] == -1) {
         printf(red "%2i "raz , tab_sortie[i]);
@@ -142,7 +142,7 @@ void afficher(int max){
 
 void Tab_2Tab(int max){
   int i = 0;
-  for (i = 0; i < N; i++){
+  for (i = 0; i < max; i++){
     tab_sortie[i]=tab_Posi[i] -1*(tab_Nega[i]);
   }
 }

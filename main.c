@@ -17,11 +17,13 @@ int main (void) {
   scanf("%i", &choix);
   switch (choix) {
     case 1:
+
       choix_hdbn();
-      sizeTab = recup_message();
+      // sizeTab = recup_message();
       recherche_zero(sizeTab);
       Tab_2Tab(sizeTab);
       afficher(sizeTab);
+      
       break;
     case 2:
       printf("En train de bosser...");
